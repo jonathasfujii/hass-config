@@ -1,0 +1,44 @@
+﻿########################
+##### Configuração #####
+########################
+
+homeassistant:
+  name: Casa
+  latitude: -15.65
+  longitude: -56.1333
+  elevation: 195
+  unit_system: metric
+  time_zone: America/Cuiaba
+  temperature_unit: C
+  customize: !include customize.yaml
+
+frontend:
+http:
+updater:
+conversation:
+history:
+logbook:
+sun:
+  
+group: !include groups.yaml
+switch: !include switches.yaml
+light: !include light.yaml
+automation: !include automation.yaml
+script: !include scripts.yaml
+shell_command: !include shell_commands.yaml
+sensor: !include sensor.yaml
+
+notify:
+  - platform: telegram
+    name: telegram_teste
+    api_key: !secret telegram_api_key
+    chat_id: !secret telegram_chat_id
+
+mqtt:
+  broker: localhost
+  port: 1883
+  client_id: home-assistant-1
+
+alarm_control_panel:
+  platform: manual
+  pending_time: 5

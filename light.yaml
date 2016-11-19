@@ -1,0 +1,53 @@
+﻿#################
+##### Luzes #####
+#################
+
+ - platform: mqtt
+   name: luz aquario 
+   state_topic: "casa/aquario/lampada/status"
+   command_topic: "casa/aquario/lampada/set"
+   qos: 0
+   payload_on: "ON"
+   payload_off: "OFF"
+   retain: true
+   optimistic: false
+
+ - platform: mqtt
+   name: luz frente
+   state_topic: "casa/frente/luz/status"
+   command_topic: "casa/frente/luz/set"
+   qos: 0
+   payload_on: "ON"
+   payload_off: "OFF"
+   retain: true
+   optimistic: false
+
+ - platform: mqtt
+   name: luz1
+   state_topic: "mygateway1-out/2/1/1/0/2"
+   command_topic: "mygateway1-in/2/1/1/0/2"
+   qos: 0
+   payload_on: "1"
+   payload_off: "0"
+   retain: true
+   optimistic: false
+
+ - platform: mqtt
+   name: luz2
+   state_topic: "mygateway1-out/2/2/1/0/2"
+   command_topic: "mygateway1-in/2/2/1/0/2"
+   qos: 0
+   payload_on: "1"
+   payload_off: "0"
+   retain: true
+   optimistic: false
+
+ - platform: mqtt
+   name: luz3
+   state_topic: "mygateway1-out/2/3/1/0/2"
+   command_topic: "mygateway1-in/2/3/1/0/2"
+   qos: 0
+   payload_on: "1"
+   payload_off: "0"
+   retain: true
+   optimistic: false

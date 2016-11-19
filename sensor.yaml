@@ -1,0 +1,26 @@
+﻿####################
+##### Sensores #####
+####################
+
+#  - platform: yweather
+#  woeid: 26802097
+#  forecast: 3
+# monitored_conditions:
+#   - weather
+#   - weather_current
+#   - temp_min
+#   - temp_max
+#   - humidity
+#   - temperature
+
+#  - platform: mqtt
+#    state_topic: 'mygateway1-out/2/3/1/0/0'
+#    name: 'Temperatura'
+#    unit_of_measurement: '°C'
+#   value_template: '{{ value_json.temperature }}'
+
+#  - platform: mqtt
+#    state_topic: 'mygateway1-out/2/4/1/0/1'
+#    name: 'Umidade'
+#    unit_of_measurement: '%'
+#   value_template: '{{ value_json.humidity }}'

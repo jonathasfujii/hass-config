@@ -1,0 +1,14 @@
+﻿#########################
+##### Interruptores #####
+#########################
+
+ - platform: mqtt
+   name: racao_aquario
+   state_topic: "casa/aquario/racao/status"
+   command_topic: "casa/aquario/racao"
+   payload_on: "ON"
+   payload_off: "OFF"
+   optimistic: false
+   qos: 0
+   retain: false
+   value_template: '{{ value.x }}'
