@@ -13,6 +13,9 @@ default_view:
     - group.teste
     - alarm_control_panel.ha_alarm
     - updater.updater
+#    - sensor.cpu_use
+#    - sensor.disk_use_
+#    - sensor.ram_free
 
 Configuracao:
   name: configurao
@@ -37,9 +40,10 @@ Aquario:
 
 Teste:
   entities:
-    - light.luz1
-    - light.luz2
-    - light.luz3
+    - light.sirene_alarme
+    - light.luz_frente
+    - light.luz_area_frente
+    - script.luz_frente_flash
 
 Conf Casa:
   entities:

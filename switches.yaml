@@ -12,3 +12,4 @@
    qos: 0
    retain: false
    value_template: '{{ value.x }}'
+

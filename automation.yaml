@@ -84,15 +84,17 @@
      service: alarm_control_panel.alarm_trigger
      entity_id: alarm_control_panel.ha_alarm
 
- - alias: alarm_dispaarar
+ - alias: alarm_disparar
    trigger:
      platform: state
      entity_id: alarm_control_panel.ha_alarm
      state: 'triggered'
    action:
-     service: homeassistant.turn_on
-     entity_id: light.luz2
- 
+     - service: homeassistant.turn_on
+       entity_id: light.sirene_alarme
+     - service: script.turn_on
+       entity_id: script.luz_frente_flash
+
  - alias: alarm_desligar
    trigger:
      platform: state
@@ -100,7 +102,9 @@
      state: 'disarmed'
    action:
      - service: homeassistant.turn_off
-       entity_id: light.luz2
+       entity_id: light.sirene_alarme
+     - service: script.turn_off
+       entity_id: script.luz_frente_flash
      - service: notify.telegram_teste
        data:
          message: 'Alarme da casa disparado.'
