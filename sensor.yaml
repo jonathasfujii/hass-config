@@ -1,7 +1,7 @@
 ﻿####################
 ##### Sensores #####
 ####################
-
+#
 #  - platform: yweather
 #  woeid: 26802097
 #  forecast: 3
