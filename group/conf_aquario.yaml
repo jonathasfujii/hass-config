@@ -1,0 +1,5 @@
+﻿Conf Aquario:
+  entities:
+    - automation.aquario_luz_ligar
+    - automation.aquario_luz_desligar
+    - automation.aquario_racao_acionar

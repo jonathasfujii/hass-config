@@ -1,0 +1,5 @@
+﻿light.luz_aquario:
+  friendly_name: 'Luz do aquário'
+
+light.luz_frente:
+  friendly_name: 'Luz da frente'

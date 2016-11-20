@@ -4,13 +4,13 @@
 
 homeassistant:
   name: Casa
-  latitude: -15.65
-  longitude: -56.1333
-  elevation: 195
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: !secret elevation
   unit_system: metric
   time_zone: America/Cuiaba
   temperature_unit: C
-  customize: !include customize.yaml
+  customize: !include_dir_merge_named customize
 
 frontend:
 http:
@@ -20,11 +20,12 @@ history:
 logbook:
 sun:
   
-group: !include groups.yaml
+################ Includes #######################
+group: !include_dir_merge_named group
 switch: !include switches.yaml
 light: !include light.yaml
-automation: !include automation.yaml
-script: !include scripts.yaml
+automation: !include_dir_merge_list automation
+script: !include_dir_named script
 shell_command: !include shell_commands.yaml
 sensor: !include sensor.yaml
 

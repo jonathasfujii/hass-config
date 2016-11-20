@@ -1,0 +1,9 @@
+﻿group.aquario:
+  friendly_name: 'Aquário'
+
+group.configuracao:
+  friendly_name: 'Configurção'
+  icon: mdi:settings
+
+group.conf_aquario:
+  friendly_name: 'Automação Aquário'

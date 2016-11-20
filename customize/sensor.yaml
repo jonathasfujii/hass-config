@@ -1,0 +1,5 @@
+﻿sensor.weather_humidity:
+  friendly_name: 'Humidade'
+  
+sensor.weather_temperature_3:
+  friendly_name: 'Temperatura'

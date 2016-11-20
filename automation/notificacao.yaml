@@ -1,0 +1,18 @@
+﻿- alias: notificao_inicializacao
+  trigger:
+    platform: event
+    event_type: homeassistant_start
+  action:
+    service: notify.telegram_teste
+    data:
+      message: 'Hass inicializado.'
+
+#- alias: notificar
+#  trigger:
+#    platform: mqtt
+#    topic: "casa/aquario/racao"
+#    payload: 'ON'
+#  action:
+#    service: notify.telegram_teste
+#    data:
+#      message: 'Ração do aquario acionada.'

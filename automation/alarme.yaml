@@ -1,0 +1,37 @@
+﻿- alias: alarme_evento
+  trigger:
+    - platform: mqtt
+      topic: "mygateway1-out/2/5/1/0/33" 
+      payload: '182113829'
+    #Sensor porta sala
+    - platform: mqtt
+      topic: "mygateway1-out/2/5/1/0/33" 
+      payload: '193271205'
+  condition:
+    - condition: state
+      entity_id: alarm_control_panel.ha_alarm
+      state: 'armed_away'
+  action:
+    service: alarm_control_panel.alarm_trigger
+    entity_id: alarm_control_panel.ha_alarm
+
+- alias: alarm_dispaarar
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    state: 'triggered'
+  action:
+    service: homeassistant.turn_on
+    entity_id: light.luz2
+
+- alias: alarm_desligar
+  trigger:
+    platform: state
+    entity_id: alarm_control_panel.ha_alarm
+    state: 'disarmed'
+  action:
+    - service: homeassistant.turn_off
+      entity_id: light.luz2
+    - service: notify.telegram_teste
+      data:
+        message: 'Alarme da casa disparado.'

@@ -1,0 +1,23 @@
+﻿- alias: aquario_luz_ligar
+  trigger:
+    - platform: time
+      after: '9:00:00'
+  action:
+    - service: light.turn_on
+      entity_id: light.luz_aquario
+
+- alias: aquario_luz_desligar
+  trigger:
+    - platform: time
+      after: '21:00:00'
+  action:
+    - service: light.turn_off
+      entity_id: light.luz_aquario
+
+# - alias: aquario_racao_acionar
+#   trigger:
+#     - platform: time
+#       after: '20:05:00'
+#   action:
+#     service: homeassistant.turn_on 
+#     entity_id: script.aquario_racao_timer

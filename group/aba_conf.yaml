@@ -1,0 +1,6 @@
+﻿Configuracao:
+  name: configurao
+  view: yes
+  entities:
+    - group.conf_aquario
+    - group.conf_casa

@@ -1,0 +1,4 @@
+﻿Geral:
+  name: geral
+  entities:
+    - light.luz_frente

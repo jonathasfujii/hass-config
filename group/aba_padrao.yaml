@@ -1,0 +1,9 @@
+﻿default_view:
+  view: yes
+  icon: mdi:home
+  entities:
+    - group.geral
+    - group.aquario
+    - group.teste
+    - alarm_control_panel.ha_alarm
+    - updater.updater

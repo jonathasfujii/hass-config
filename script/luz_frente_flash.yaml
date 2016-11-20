@@ -1,0 +1,18 @@
+alias: 'Luz Frente Flash'   
+sequence:
+  - alias: light_on
+    service: homeassistant.turn_on
+    data:
+      entity_id: ligth.luz2
+  - delay:
+      seconds: 1
+  - alias: light_off
+    service: homeassistant.turn_off
+    data:
+      entity_id: ligth.luz2
+  - delay:
+      seconds: 1
+  - alias: loop
+    service: script.turn_on
+    data:
+      entity_id: script.luz_frente_flash

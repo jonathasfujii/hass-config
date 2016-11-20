@@ -1,0 +1,6 @@
+﻿Aquario:
+  entities:
+    - light.luz_aquario
+    - script.aquario_racao
+    - script.aquario
+    - switch.racao_aquario
