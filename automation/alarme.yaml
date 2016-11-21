@@ -22,7 +22,7 @@
     state: 'triggered'
   action:
     service: homeassistant.turn_on
-    entity_id: light.luz2
+    entity_id: light.sirene
 
 - alias: alarm_desligar
   trigger:
@@ -31,7 +31,7 @@
     state: 'disarmed'
   action:
     - service: homeassistant.turn_off
-      entity_id: light.luz2
+      entity_id: light.sirene
     - service: notify.telegram_teste
       data:
         message: 'Alarme da casa disparado.'

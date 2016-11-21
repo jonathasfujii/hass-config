@@ -1,0 +1,15 @@
+rf433_portao:
+  alias: 'Portão eletrônico'
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "mygateway1-in/2/6/1/0/32"
+        payload_template: !secret rf433_portao
+
+rf433_cerca:
+  alias: 'Cerca elétrica'
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "mygateway1-in/2/6/1/0/32"
+        payload_template: !secret rf433_cerca
