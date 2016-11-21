@@ -1,18 +1,10 @@
-aquario:
+aquario_racao:
   alias: 'aquario racao mqtt'
   sequence:
     - service: mqtt.publish
       data:
         topic: "casa/aquario/racao"
         payload_template: 'ON'
-
-#alias: 'Aquário Acionar Ração'   
-#aquario_racao:
-#  sequence:
-#  - alias: Telegram notificacao
-#    service: notify.telegram_teste
-#    data:
-#      message: 'Ração do aquario acionada.'
 
 #aquario_racao_timer:
 #  sequence:
@@ -21,3 +13,12 @@ aquario:
 #    data:
 #      message: 'Ração do aquario acionada.'
 #  - service: script.aquario_racao_mqtt
+
+#aquario_racao:
+#  alias: 'Aquário Acionar Ração'   
+#  sequence:
+#    - alias: Telegram notificacao
+#      service: notify.telegram_teste
+#      data:
+#        message: 'Ração do aquario acionada.'
+
