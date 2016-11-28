@@ -6,6 +6,32 @@ aquario_racao:
         topic: "casa/aquario/racao"
         payload_template: 'ON'
 
+light_flash:
+  alias: Light flash on
+  sequence:
+    - service: mqtt.publish
+      data:
+        topic: "casa/aquario/racao"
+        payload_template: 'ON'
+    - service: script.turn_on
+      data:
+        entity_id: script.racao_aquario
+    - delay:
+        # time for flash light on
+        seconds: 5
+    - service: script.turn_on
+      data:
+        entity_id: script.light_loop
+light_loop:
+  alias: Light flash loop
+  sequence:
+    - delay:
+        # time for flash light off
+        seconds: 5
+    - service: script.turn_on
+      data:
+        entity_id: script.light_flash
+
 #aquario_racao_timer:
 #  sequence:
 #  - alias: Telegram notificacao

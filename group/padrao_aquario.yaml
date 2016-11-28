@@ -2,3 +2,5 @@
   entities:
     - light.luz_aquario
     - script.aquario_racao
+    - script.light_flash
+    - script.light_loop
