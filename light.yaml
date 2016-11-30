@@ -3,7 +3,7 @@
 #################
 
  - platform: mqtt
-   name: luz aquario 
+   name: luz_aquario 
    state_topic: "casa/aquario/lampada/status"
    command_topic: "casa/aquario/lampada/set"
    qos: 0

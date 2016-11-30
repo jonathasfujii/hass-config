@@ -1,18 +1,22 @@
-#alias: 'Luz Frente Flash'   
-#sequence:
-#  - alias: light_on
-#    service: homeassistant.turn_on
-#    data:
-#      entity_id: ligth.luz2
-#  - delay:
-#      seconds: 1
-#  - alias: light_off
-#    service: homeassistant.turn_off
-#    data:
-#      entity_id: ligth.luz2
-#  - delay:
-#      seconds: 1
-#  - alias: loop
-#    service: script.turn_on
-#    data:
-#      entity_id: script.luz_frente_flash
+luz_frente_flash:
+  alias: Liga Pisca Luz da Frente
+  sequence:
+    - service: homeassistant.turn_on
+      data:
+        entity_id: light.luz_frente
+    - delay:
+        seconds: 1
+    - service: homeassistant.turn_off
+      data:
+        entity_id: light.luz_frente
+    - service: script.turn_on
+      data:
+        entity_id: script.luz_frente_flash_loop
+luz_frente_flash_loop:
+  alias: Desliga Pisca Luz da Frente
+  sequence:
+    - delay:
+        seconds: 1
+    - service: script.turn_on
+      data:
+        entity_id: script.luz_frente_flash

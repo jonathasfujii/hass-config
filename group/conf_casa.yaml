@@ -1,4 +1,0 @@
-﻿Conf Casa:
-  entities:
-    - automation.luz_frente_on
-    - automation.luz_frente_off

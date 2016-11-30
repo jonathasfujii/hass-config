@@ -1,7 +1,0 @@
-﻿Geral:
-  name: geral
-  entities:
-    - light.luz_frente
-    - light.arvore_natal
-    - script.rf433_portao
-    - script.rf433_cerca

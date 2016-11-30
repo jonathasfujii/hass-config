@@ -3,3 +3,6 @@
 
 light.luz_frente:
   friendly_name: 'Luz da frente'
+
+light.arvore_natal:
+  friendly_name: 'Arvore de Natal'

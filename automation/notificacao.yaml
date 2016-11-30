@@ -3,9 +3,10 @@
     platform: event
     event_type: homeassistant_start
   action:
-    service: notify.telegram_teste
-    data:
-      message: 'Hass inicializado.'
+    - delay: 00:01:00
+    - service: notify.telegram_jonathas
+      data:
+        message: 'Home Assistant inicializado.'
 
 #- alias: notificar
 #  trigger:

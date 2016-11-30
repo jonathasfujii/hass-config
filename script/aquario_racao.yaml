@@ -9,10 +9,6 @@ aquario_racao:
 light_flash:
   alias: Light flash on
   sequence:
-    - service: mqtt.publish
-      data:
-        topic: "casa/aquario/racao"
-        payload_template: 'ON'
     - service: script.turn_on
       data:
         entity_id: script.racao_aquario
