@@ -1,0 +1,7 @@
+﻿- platform: mqtt
+  state_topic: "house/controller/1"
+  name: sensor_presenca_sala
+  qos: 0
+  payload_on: "193271205"
+  payload_off: "193271205 off"
+  sensor_class: motion

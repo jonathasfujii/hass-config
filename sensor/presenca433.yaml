@@ -1,0 +1,7 @@
+﻿#- platform: mqtt
+#  name: 'Sensor presenca sala'
+#  state_topic: "mygateway1-out/2/5/1/0/33"
+#  value_template: '{{ value == "193271205" }}'
+#- platform: command_line
+#  name: Temperatura CPU
+#  command: "/opt/vc/bin/vcgencmd measure_temp"

@@ -6,7 +6,7 @@
     #Sensor porta sala
     - platform: mqtt
       topic: "mygateway1-out/2/5/1/0/33" 
-      payload: '193271205'
+      payload: rf433_sensor_porta_sala
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm
@@ -15,26 +15,26 @@
     service: alarm_control_panel.alarm_trigger
     entity_id: alarm_control_panel.ha_alarm
 
-- alias: alarme_disparar
-  trigger:
-    platform: state
-    entity_id: alarm_control_panel.ha_alarm
-    state: 'triggered'
-  action:
+#- alias: alarme_disparar
+#  trigger:
+#    platform: state
+#    entity_id: alarm_control_panel.ha_alarm
+#    state: 'triggered'
+#  action:
 #    - service: homeassistant.turn_on
 #      entity_id: light.sirene
-    - service: script.turn_on
-      entity_id: script.luz_frente_flash
-    - service: notify.telegram_jonathas
-      data:
-        message: 'Alarme da casa disparado.'
-- alias: alarme_desligar
-  trigger:
-    platform: state
-    entity_id: alarm_control_panel.ha_alarm
-    state: 'disarmed'
-  action:
+#    - service: script.turn_on
+#      entity_id: script.luz_frente_flash
+#    - service: notify.telegram_jonathas
+#      data:
+#        message: 'Alarme da casa disparado.'
+#- alias: alarme_desligar
+#  trigger:
+#    platform: state
+#    entity_id: alarm_control_panel.ha_alarm
+#    state: 'disarmed'
+#  action:
 #    - service: homeassistant.turn_off
 #      entity_id: light.sirene
-    - service: script.turn_off
-      entity_id: script.luz_frente_flash, script.luz_frente_flash_loop
+#    - service: script.turn_off
+#      entity_id: script.luz_frente_flash, script.luz_frente_flash_loop

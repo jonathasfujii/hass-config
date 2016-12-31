@@ -13,6 +13,8 @@ Geral:
   entities:
     - light.luz_frente
     - light.arvore_natal
+    - binary_sensor.sensor_presenca_sala
+#    - sensor.temperatura_cpu
 
 Aquario:
   entities:

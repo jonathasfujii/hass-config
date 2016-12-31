@@ -22,12 +22,26 @@ sun:
   
 ################ Includes #######################
 group: !include_dir_merge_named group
+script: !include_dir_merge_named script
+
 switch: !include switches.yaml
 light: !include light.yaml
 automation: !include_dir_merge_list automation
-script: !include_dir_merge_named script
 shell_command: !include shell_commands.yaml
-sensor: !include sensor.yaml
+sensor: !include_dir_merge_list sensor
+#binary_sensor: !include_dir_merge_list binay_sensor
+binary_sensor: !include binary_sensor.yaml
+
+logger:
+  default: warn
+  #default: error
+  logs:
+    homeassistant.components.binary_sensor: debug
+#    homeassistant.components.sensor: debug
+#    homeassistant.components.camera: debug
+#    homeassistant.components.discovery: warn
+#    homeassistant.components.http: warn
+#    homeassistant.core: debug
 
 notify:
   - platform: telegram
