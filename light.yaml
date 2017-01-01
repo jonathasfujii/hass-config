@@ -50,4 +50,12 @@
    payload_on: "1"
    payload_off: "0"
    retain: true
-#   optimistic: false
+
+ - platform: mqtt_json
+   name: aquario_rgb
+   state_topic: "casa/aquario/rgb"
+   command_topic: "casa/aquario/rgb/set"
+   brightness: true
+   rgb: true
+   optimistic: false
+   qos: 1
