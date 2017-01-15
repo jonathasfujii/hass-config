@@ -13,3 +13,15 @@
   action:
     service: light.turn_off
     entity_id: light.arvore_natal
+
+- alias: arvore_natal_presenca
+  trigger:
+    - platform: mqtt
+      topic: "mygateway1-out/2/5/1/0/33" 
+      payload: rf433_sensor_porta_sala
+  condition: time
+    after: '22:30:00'
+    before: '18:00:00'
+  action:
+    service: light.turn_on
+    entity_id: light.arvore_natal

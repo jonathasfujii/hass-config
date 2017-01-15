@@ -2,13 +2,27 @@
 ##### Interruptores #####
 #########################
 
- - platform: mqtt
-   name: racao_aquario
-   state_topic: "casa/aquario/racao/status"
-   command_topic: "casa/aquario/racao"
-   payload_on: "ON"
-   payload_off: "OFF"
-   optimistic: false
-   qos: 0
-   retain: false
-   value_template: '{{ value.x }}'
+- platform: mqtt
+  name: racao_aquario
+  state_topic: "casa/aquario/racao"
+  command_topic: "casa/aquario/racao/set"
+  payload_on: "ON"
+  payload_off: "OFF"
+  optimistic: false
+  qos: 1
+
+- platform: mqtt
+  name: "Bomba Ar Aquario"
+  state_topic: "casa/aquario/bomba_ar"
+  command_topic: "casa/aquario/bomba_ar/set"
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 1
+
+- platform: mqtt
+  name: "Aquecedor Aquario"
+  state_topic: "casa/aquario/aquecedor"
+  command_topic: "casa/aquario/aquecedor/set"
+  payload_on: "ON"
+  payload_off: "OFF"
+  qos: 1

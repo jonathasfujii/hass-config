@@ -19,6 +19,10 @@ Geral:
 Aquario:
   entities:
     - light.luz_aquario
+    - sensor.temperatura_aquario
+    - switch.racao_aquario
+    - switch.bomba_ar_aquario
+    - switch.aquecedor_aquario
     - script.aquario_racao
-    - script.light_flash
-    - script.light_loop
+#    - script.light_flash
+#    - script.light_loop

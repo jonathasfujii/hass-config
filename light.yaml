@@ -3,16 +3,6 @@
 #################
 
  - platform: mqtt
-   name: luz_aquario 
-   state_topic: "casa/aquario/lampada/status"
-   command_topic: "casa/aquario/lampada/set"
-   qos: 0
-   payload_on: "ON"
-   payload_off: "OFF"
-   retain: true
-   optimistic: false
-
- - platform: mqtt
    name: luz_frente
    state_topic: "casa/frente/luz/status"
    command_topic: "casa/frente/luz/set"
@@ -52,10 +42,11 @@
    retain: true
 
  - platform: mqtt_json
-   name: aquario_rgb
+   name: "Luz Aquario"
    state_topic: "casa/aquario/rgb"
    command_topic: "casa/aquario/rgb/set"
    brightness: true
    rgb: true
+   transition: 1
    optimistic: false
    qos: 1
