@@ -3,10 +3,3 @@
 #  state_topic: "mygateway1-out/2/5/1/0/33"
 #  payload_on: '193271205'
 #  sensor_class: motion
-- platform: mqtt
-  state_topic: "house/controller/1"
-  name: "Front PIR"
-  qos: 0
-  payload_on: "4"
-  payload_off: "4 off"
-  sensor_class: motion

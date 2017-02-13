@@ -1,0 +1,33 @@
+﻿- name: 'Luz Aquário'
+  entities:
+  light.luz_aquario:
+    state: on
+    rgb_color: [254, 254, 254]
+    brightness: 254
+    transition: 1
+- name: 'Desligar Luz Aquário'
+  entities:
+  light.luz_aquario:
+    state: off
+    transition: 1
+- name: 'Luz Aquário Verde'
+  entities:
+  light.luz_aquario:
+    state: on
+    rgb_color: [102, 205, 70]
+    brightness: 254
+    transition: 1
+- name: 'Luz do Aquário Azul'
+  entities:
+  light.luz_aquario:
+    state: on
+    rgb_color: [0, 127, 255]
+    brightness: 255
+    transition: 1
+- name: 'Luz Aquário Rosa'
+  entities:
+  light.luz_aquario:
+    state: on
+    rgb_color: [255, 105, 180]
+    brightness: 255
+    transition: 1

@@ -1,0 +1,34 @@
+############## Luz por movimento
+timer_pir_salatv:
+  alias: "Turn on lamp and set timer"
+  sequence:
+    # Cancel ev. old timers
+    - service: script.turn_off
+      data:
+         entity_id: script.timer_pir_salatv_off
+#    - service: light.turn_on
+#      data:
+#        entity_id: light.luz_aquario
+    # Set new timer
+    - service: script.turn_on
+      data:
+        entity_id: script.timer_pir_salatv_off
+
+#timer_luz_aquario_off:
+#  alias: "Turn off lamp aquario"
+#  sequence:
+#    - delay:
+#        minutes: 30
+#    - service: light.turn_off
+#      data:
+#        entity_id: light.luz_aquario
+
+timer_pir_salatv_off:
+  alias: "Turn off pir salatv"
+  sequence:
+    - delay:
+        minutes: 3
+    - service: mqtt.publish
+      data:
+        topic: "casa/salatv/pir"
+        payload: "OFF-"

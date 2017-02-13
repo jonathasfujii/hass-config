@@ -10,43 +10,93 @@
    payload_on: "ON"
    payload_off: "OFF"
    retain: true
-#   optimistic: false
+   optimistic: false
 
  - platform: mqtt
-   name: arvore_natal
+   name: luz1
    state_topic: "mygateway1-out/2/1/1/0/2"
    command_topic: "mygateway1-in/2/1/1/0/2"
    qos: 1
    payload_on: "1"
    payload_off: "0"
    retain: true
-#   optimistic: false
+   optimistic: false
 
  - platform: mqtt
-   name: luz_frente2
+   name: luz2
    state_topic: "mygateway1-out/2/2/1/0/2"
    command_topic: "mygateway1-in/2/2/1/0/2"
    qos: 1
    payload_on: "1"
    payload_off: "0"
    retain: true
-#   optimistic: false
+   optimistic: false
 
  - platform: mqtt
-   name: luz_area_frente
+   name: luz3
    state_topic: "mygateway1-out/2/3/1/0/2"
    command_topic: "mygateway1-in/2/3/1/0/2"
    qos: 1
    payload_on: "1"
    payload_off: "0"
    retain: true
-
+########## Aquario """"""""""""""""""""
  - platform: mqtt_json
    name: "Luz Aquario"
    state_topic: "casa/aquario/rgb"
    command_topic: "casa/aquario/rgb/set"
    brightness: true
    rgb: true
-   transition: 1
    optimistic: false
+   retain: true
    qos: 1
+
+ - platform: mqtt_json
+   name: "Abajur"
+   state_topic: "casa/abajur/luz"
+   command_topic: "casa/abajur/luz/set"
+   brightness: true
+   optimistic: false
+   retain: true
+   qos: 1
+
+########## ICM01
+ - platform: mqtt
+   name: salatv_spot_frente
+   state_topic: "casa/icm01/rele1"
+   command_topic: "casa/icm01/rele1/set"
+   qos: 1
+   payload_on: "ON"
+   payload_off: "OFF"
+   retain: true
+   optimistic: false
+ 
+ - platform: mqtt
+   name: salatv_spot_fundo
+   state_topic: "casa/icm01/rele3"
+   command_topic: "casa/icm01/rele3/set"
+   qos: 1
+   payload_on: "ON"
+   payload_off: "OFF"
+   retain: true
+   optimistic: false
+
+ - platform: mqtt
+   name: quintal_luz_jardim
+   state_topic: "casa/icm01/rele2"
+   command_topic: "casa/icm01/rele2/set"
+   qos: 1
+   payload_on: "ON"
+   payload_off: "OFF"
+   retain: true
+   optimistic: false
+
+ - platform: mqtt
+   name: quintal_refletor
+   state_topic: "casa/icm01/rele4"
+   command_topic: "casa/icm01/rele1/set"
+   qos: 1
+   payload_on: "ON"
+   payload_off: "OFF"
+   retain: true
+   optimistic: false

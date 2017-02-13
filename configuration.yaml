@@ -27,10 +27,12 @@ script: !include_dir_merge_named script
 switch: !include switches.yaml
 light: !include light.yaml
 automation: !include_dir_merge_list automation
-shell_command: !include shell_commands.yaml
+scene: !include scene.yaml
+#shell_command: !include shell_commands.yaml
 sensor: !include_dir_merge_list sensor
 #binary_sensor: !include_dir_merge_list binay_sensor
 binary_sensor: !include binary_sensor.yaml
+
 
 #logger:
 #  default: warn
@@ -57,3 +59,8 @@ mqtt:
 alarm_control_panel:
   platform: manual
   pending_time: 5
+
+device_tracker:
+  - platform: nmap_tracker
+    hosts: 192.168.1.1/24 
+    interval_seconds: 30

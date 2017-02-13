@@ -7,6 +7,9 @@
     - platform: mqtt
       topic: "mygateway1-out/2/5/1/0/33" 
       payload: rf433_sensor_porta_sala
+    - platform: state
+      entity_id: binary_sensor.aquario_sensor_pir
+      to: 'on'
   condition:
     - condition: state
       entity_id: alarm_control_panel.ha_alarm

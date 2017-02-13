@@ -1,0 +1,16 @@
+﻿- alias: Ligar luz do aquario por movimento
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.aquario_sensor_pir
+      to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timer_pir_aquario
+
+# - alias: aquario_racao_acionar
+#   trigger:
+#     - platform: time
+#       after: '20:05:00'
+#   action:
+#     service: homeassistant.turn_on 
+#     entity_id: script.aquario_racao_timer

@@ -1,7 +1,34 @@
 ﻿- platform: mqtt
-  state_topic: "house/controller/1"
-  name: sensor_presenca_sala
+  name: salatv_sensor_pir
+  state_topic: "casa/salatv/pir"
   qos: 0
   payload_on: "193271205"
-  payload_off: "193271205 off"
+  payload_off: "OFF-"
+  sensor_class: motion
+
+####Aquario
+- platform: mqtt
+  name: aquario_sensor_pir
+  state_topic: "casa/aquario/pir"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF-"
+  sensor_class: motion
+
+###### Abajur
+- platform: mqtt
+  name: abajur_sensor_pir
+  state_topic: "casa/abajur/pir"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF-"
+  sensor_class: motion
+
+###### Quintal
+- platform: mqtt
+  name: quintal_sensor_pir
+  state_topic: "casa/icm01/pir"
+  qos: 0
+  payload_on: "ON"
+  payload_off: "OFF-"
   sensor_class: motion

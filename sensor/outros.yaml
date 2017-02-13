@@ -24,8 +24,15 @@
 #    name: 'Umidade'
 #    unit_of_measurement: '%'
 #   value_template: '{{ value_json.humidity }}'
+
 - platform: mqtt
-  state_topic: "casa/aquario/temperatura/set"
+  state_topic: "casa/aquario/temperatura"
   name: "Temperatura Aquario"
+  unit_of_measurement: "°C"
+  qos: 1
+
+- platform: mqtt
+  state_topic: "casa/icm01/temperatura"
+  name: "Temperatura Quintal"
   unit_of_measurement: "°C"
   qos: 1

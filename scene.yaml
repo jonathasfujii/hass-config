@@ -1,0 +1,39 @@
+﻿# branco 
+- name: luz_aquario_cor1
+  entities:
+    light.luz_aquario:
+      state: on
+      rgb_color: [255, 255, 255]
+      brightness: 255
+      transition: 1
+# rosa
+- name: luz_aquario_cor2
+  entities:
+    light.luz_aquario:
+      state: on
+      rgb_color: [255, 105, 180]
+      brightness: 255
+      transition: 1
+# azul
+- name: luz_aquario_cor3
+  entities:
+    light.luz_aquario:
+      state: on
+      rgb_color: [56,176,222]
+      brightness: 255
+      transition: 1
+# verde
+- name: luz_aquario_cor4
+  entities:
+    light.luz_aquario:
+      state: on
+      rgb_color: [112,219,14]
+      brightness: 255
+      transition: 1
+# desligar
+- name: luz_aquario_desligar
+  entities:
+    light.luz_aquario:
+      state: off
+      transition: 1
+

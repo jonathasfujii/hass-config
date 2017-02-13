@@ -2,27 +2,73 @@
   view: yes
   icon: mdi:home
   entities:
-    - group.geral
+    - group.frente
+    - group.quintal
+    - group.salatv
+    - group.sala
+    - group.quarto
     - group.aquario
-    - group.teste
+    - group.dispositivos
     - alarm_control_panel.ha_alarm
     - updater.updater
 
-Geral:
-  name: geral
+Frente:
+  name: "Frente"
   entities:
     - light.luz_frente
-    - light.arvore_natal
-    - binary_sensor.sensor_presenca_sala
-#    - sensor.temperatura_cpu
 
+Quintal:
+  name: "Quintal"
+  entities:
+    - light.quintal_luz_jardim
+    - light.quintal_refletor
+    - binary_sensor.quintal_sensor_pir
+    - sensor.temperatura_quintal
+    
+
+SalaTV:
+  name: "SalaTV"
+  entities:
+    - light.salatv_spot_frente
+    - light.salatv_spot_fundo
+    - binary_sensor.salatv_sensor_pir
+
+Sala:
+  name: "Sala"
+  entities:
+    - binary_sensor.aquario_sensor_pir
+Quarto:
+  name: "Quarto"
+  entities:
+    - light.abajur
+    - binary_sensor.abajur_sensor_pir
 Aquario:
+  name: "Aquário"
   entities:
     - light.luz_aquario
     - sensor.temperatura_aquario
-    - switch.racao_aquario
     - switch.bomba_ar_aquario
     - switch.aquecedor_aquario
     - script.aquario_racao
-#    - script.light_flash
-#    - script.light_loop
+    - scene.luz_aquario_cor1
+    - scene.luz_aquario_cor2
+    - scene.luz_aquario_cor3
+    - scene.luz_aquario_cor4
+    - scene.luz_aquario_desligar
+#    - switch.racao_aquario
+
+Dispositivos:
+  entities:
+    - device_tracker.e894f6ebbd5c
+    - device_tracker.000214f015b0
+    - device_tracker.02c206c2776f
+    - device_tracker.18fe34a1b2f0
+    - device_tracker.6001940fd17a
+    - device_tracker.1499e2edeec0
+    - device_tracker.8cfabacf6313
+    - device_tracker.881fa18523c6
+    - device_tracker.dc2b61335296
+    - device_tracker.fcf13639532c
+    - device_tracker.b827eb276ebf
+    - device_tracker.5c0a5b1aa754
+    - device_tracker.b8098ab1aea9

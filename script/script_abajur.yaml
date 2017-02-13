@@ -1,0 +1,34 @@
+############## Luz por movimento
+timer_pir_abajur:
+  alias: "Turn on lamp and set timer"
+  sequence:
+    # Cancel ev. old timers
+    - service: script.turn_off
+      data:
+         entity_id: script.timer_luz_abajur_off, script.timer_pir_abajur_off
+    - service: light.turn_on
+      data:
+        entity_id: light.abajur
+    # Set new timer
+    - service: script.turn_on
+      data:
+        entity_id: script.timer_luz_abajur_off, script.timer_pir_abajur_off
+
+timer_luz_abajur_off:
+  alias: "Turn off lamp after 1 minutes"
+  sequence:
+    - delay:
+        minutes: 15
+    - service: light.turn_off
+      data:
+        entity_id: light.abajur
+
+timer_pir_abajur_off:
+  alias: "Turn off pir abajur"
+  sequence:
+    - delay:
+        minutes: 3
+    - service: mqtt.publish
+      data:
+        topic: "casa/abajur/pir"
+        payload: "OFF-"

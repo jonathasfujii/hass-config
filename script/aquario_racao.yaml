@@ -3,7 +3,7 @@ aquario_racao:
   sequence:
     - service: mqtt.publish
       data:
-        topic: "casa/aquario/racao"
+        topic: "casa/aquario/racao/set"
         payload_template: 'ON'
 
 light_flash:
