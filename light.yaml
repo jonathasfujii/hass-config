@@ -94,7 +94,7 @@
  - platform: mqtt
    name: quintal_refletor
    state_topic: "casa/icm01/rele4"
-   command_topic: "casa/icm01/rele1/set"
+   command_topic: "casa/icm01/rele4/set"
    qos: 1
    payload_on: "ON"
    payload_off: "OFF"

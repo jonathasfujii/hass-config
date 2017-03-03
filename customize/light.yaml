@@ -6,3 +6,8 @@ light.luz_frente:
 
 light.arvore_natal:
   friendly_name: 'Arvore de Natal'
+
+light.salatv_spot_frente:
+  friendly_name: 'Luz da TV'
+light.salatv_spot_fundo:
+  friendly_name: 'Luz do Sofá'

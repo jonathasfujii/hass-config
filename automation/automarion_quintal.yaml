@@ -1,0 +1,9 @@
+﻿- alias: Gatilho do sensor de movimento do quintal
+  trigger:
+    - platform: state
+      entity_id: binary_sensor.quintal_sensor_pir
+      to: 'on'
+  action:
+    service: homeassistant.turn_on
+    entity_id: script.timer_pir_quintal
+

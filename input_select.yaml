@@ -1,0 +1,18 @@
+﻿aquario_automacao:
+    name: "Automação"
+    options:
+     - Movimento
+     - Horario
+     - Mix
+     - Manual
+    initial: Movimento
+
+aquario_luz_cor:
+    name: "Cor da Luz"
+    options:
+     - Branco quente
+     - Branco frio
+     - Verde
+     - Rosa
+     - Azul
+    initial: Branco frio

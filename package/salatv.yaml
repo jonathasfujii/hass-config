@@ -1,0 +1,6 @@
+﻿group:
+  salatv2:
+    name: "SalaTV2"
+    entities:
+      - binary_sensor.salatv_sensor_pir
+

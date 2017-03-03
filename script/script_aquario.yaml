@@ -1,16 +1,32 @@
 ############## Luz por movimento
-timer_pir_aquario:
-  alias: "Turn on lamp and set timer"
+timer_sensor_pir_aquario:
+  alias: "Seter o sensor de movimento do aquario"
   sequence:
     - service: script.turn_off
       data:
-         entity_id: script.timer_luz_aquario_off, script.timer_pir_aquario_off
+         entity_id: script.timer_sensor_pir_aquario_off
+    - service: script.turn_on
+      data:
+        entity_id: script.timer_sensor_pir_aquario_off
+
+timer_luz_aquario:
+  alias: "Acionar luz aquario por movimento"
+  sequence:
+    - condition: state
+      entity_id: input_select.aquario_automacao
+      state: Movimento
+    - service: script.turn_off
+      data:
+         entity_id: script.timer_luz_aquario_off
     - service: light.turn_on
       data:
         entity_id: light.luz_aquario
+    - service: switch.turn_on
+      data:
+        entity_id: switch.bomba_ar_aquario
     - service: script.turn_on
       data:
-        entity_id: script.timer_luz_aquario_off, script.timer_pir_aquario_off
+        entity_id: script.timer_luz_aquario_off
 
 timer_luz_aquario_off:
   alias: "Turn off lamp aquario"
@@ -20,8 +36,11 @@ timer_luz_aquario_off:
     - service: light.turn_off
       data:
         entity_id: light.luz_aquario
+    - service: switch.turn_off
+      data:
+        entity_id: switch.bomba_ar_aquario
 
-timer_pir_aquario_off:
+timer_sensor_pir_aquario_off:
   alias: "Turn off pir aquario"
   sequence:
     - delay:
@@ -29,5 +48,5 @@ timer_pir_aquario_off:
     - service: mqtt.publish
       data:
         topic: "casa/aquario/pir"
-        payload: "OFF-"
+        payload: "OFF"
         

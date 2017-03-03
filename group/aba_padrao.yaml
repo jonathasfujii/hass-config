@@ -3,8 +3,8 @@
   icon: mdi:home
   entities:
     - group.frente
-    - group.quintal
     - group.salatv
+    - group.quintal
     - group.sala
     - group.quarto
     - group.aquario
@@ -17,6 +17,13 @@ Frente:
   entities:
     - light.luz_frente
 
+SalaTV:
+  name: "SalaTV"
+  entities:
+    - light.salatv_spot_frente
+    - light.salatv_spot_fundo
+    - binary_sensor.salatv_sensor_pir
+
 Quintal:
   name: "Quintal"
   entities:
@@ -25,13 +32,6 @@ Quintal:
     - binary_sensor.quintal_sensor_pir
     - sensor.temperatura_quintal
     
-
-SalaTV:
-  name: "SalaTV"
-  entities:
-    - light.salatv_spot_frente
-    - light.salatv_spot_fundo
-    - binary_sensor.salatv_sensor_pir
 
 Sala:
   name: "Sala"
@@ -46,16 +46,16 @@ Aquario:
   name: "Aquário"
   entities:
     - light.luz_aquario
+    - input_select.aquario_luz_cor
+    - input_select.aquario_automacao
     - sensor.temperatura_aquario
     - switch.bomba_ar_aquario
     - switch.aquecedor_aquario
-    - script.aquario_racao
+    - switch.racao_aquario
     - scene.luz_aquario_cor1
     - scene.luz_aquario_cor2
     - scene.luz_aquario_cor3
     - scene.luz_aquario_cor4
-    - scene.luz_aquario_desligar
-#    - switch.racao_aquario
 
 Dispositivos:
   entities:

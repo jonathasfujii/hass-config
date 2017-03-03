@@ -12,7 +12,7 @@
   state_topic: "casa/aquario/pir"
   qos: 0
   payload_on: "ON"
-  payload_off: "OFF-"
+  payload_off: "OFF"
   sensor_class: motion
 
 ###### Abajur
