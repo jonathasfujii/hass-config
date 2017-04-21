@@ -2,7 +2,7 @@
   trigger:
     platform: sun
     event: sunset
-    offset: "+00:15:00"
+    offset: "+00:20:00"
   action:
     service: light.turn_on
     entity_id: light.luz_frente
@@ -10,7 +10,7 @@
 - alias: luz_frente_off
   trigger:
     platform: time
-    after: '22:00:00'
+    after: '21:30:00'
   action:
     service: light.turn_off
     entity_id: light.luz_frente

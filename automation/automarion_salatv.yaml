@@ -1,8 +1,24 @@
-﻿- alias: Ligar luz da sala tv por movimento
+﻿#- alias: Ligar luz da sala tv por movimento
+#  trigger:
+#    - platform: state
+#      entity_id: binary_sensor.salatv_sensor_pir
+#      to: 'on'
+#  action:
+#    service: homeassistant.turn_on
+#    entity_id: script.timer_pir_salatv
+- alias: luz_salatv_spot_frente_on
   trigger:
-    - platform: state
-      entity_id: binary_sensor.salatv_sensor_pir
-      to: 'on'
+    platform: sun
+    event: sunset
+    offset: "+00:15:00"
   action:
-    service: homeassistant.turn_on
-    entity_id: script.timer_pir_salatv
+    service: light.turn_on
+    entity_id: light.salatv_spot_frente
+
+- alias: luz_frente_off
+  trigger:
+    platform: time
+    after: '22:00:00'
+  action:
+    service: light.turn_off
+    entity_id: light.salatv_spot_frente
