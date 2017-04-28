@@ -16,11 +16,13 @@ homeassistant:
 
 frontend:
 http:
+  api_password: !secret senha_http
 updater:
 conversation:
 history:
 logbook:
 sun:
+ios:
   
 ################ Includes #######################
 group: !include_dir_merge_named group
