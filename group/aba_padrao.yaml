@@ -42,6 +42,7 @@ Quarto:
   entities:
     - light.abajur
     - binary_sensor.abajur_sensor_pir
+    - sensor.abajur_sensor_luz
 Aquario:
   name: "Aquário"
   entities:

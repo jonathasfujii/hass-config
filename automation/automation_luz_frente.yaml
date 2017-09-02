@@ -10,7 +10,7 @@
 - alias: luz_frente_off
   trigger:
     platform: time
-    after: '21:30:00'
+    at: '21:30:00'
   action:
     service: light.turn_off
     entity_id: light.luz_frente

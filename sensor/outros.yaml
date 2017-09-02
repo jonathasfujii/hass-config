@@ -36,3 +36,8 @@
   name: "Temperatura Quintal"
   unit_of_measurement: "°C"
   qos: 1
+
+- platform: mqtt
+  state_topic: "casa/abajur/ldr"
+  name: "Abajur Sensor Luz"
+  qos: 1

@@ -9,7 +9,7 @@
 - alias: arvore_natal_off
   trigger:
     platform: time
-    after: '22:30:00'
+    at: '22:30:00'
   action:
     service: light.turn_off
     entity_id: light.arvore_natal
@@ -20,7 +20,7 @@
 #      topic: "mygateway1-out/2/5/1/0/33" 
 #      payload: rf433_sensor_porta_sala
 #  condition: time
-#    after: '22:30:00'
+#    at: '22:30:00'
 #    before: '18:00:00'
 #  action:
 #    service: light.turn_on

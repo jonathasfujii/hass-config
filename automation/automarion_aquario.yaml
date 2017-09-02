@@ -10,7 +10,7 @@
 # - alias: aquario_racao_acionar
 #   trigger:
 #     - platform: time
-#       after: '20:05:00'
+#       at: '20:05:00'
 #   action:
 #     service: homeassistant.turn_on 
 #     entity_id: script.aquario_racao_timer

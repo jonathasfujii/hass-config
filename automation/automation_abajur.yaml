@@ -7,3 +7,20 @@
     service: homeassistant.turn_on
     entity_id: script.timer_pir_abajur
 
+- alias: Desligar luz do abajur por claridade
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.abajur_sensor_luz
+      above: 13
+  action:
+    service: light.turn_off
+    entity_id: light.abajur
+
+- alias: Ligar luz do abajur por claridade
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.abajur_sensor_luz
+      below: 13
+  action:
+    service: light.turn_on
+    entity_id: light.abajur
