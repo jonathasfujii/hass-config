@@ -1,0 +1,67 @@
+﻿light:
+  - platform: mqtt
+    name: gateway_rf_rele1
+    state_topic: "casa/gateway_rf/rele1"
+    command_topic: "casa/gateway_rf/rele1/set"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+    optimistic: false
+    
+  - platform: mqtt
+    name: gateway_rf_rele2
+    state_topic: "casa/gateway_rf/rele2"
+    command_topic: "casa/gateway_rf/rele2/set"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+    optimistic: false
+  - platform: mqtt
+    name: gateway_rf_rele3
+    state_topic: "casa/gateway_rf/rele3"
+    command_topic: "casa/gateway_rf/rele3/set"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+    optimistic: false
+
+binary_sensor:
+  - platform: mqtt
+    name: "controle1_botao2"
+    state_topic: "casa/gateway_rf/433toMQTT"
+    payload_on: "159460773"
+    payload_off: "159460773-OFF"
+    qos: 0
+  - platform: mqtt
+    name: "controle1_botao3"
+    state_topic: "casa/gateway_rf/433toMQTT"
+    payload_on: "159460789"
+    payload_off: "159460789-OFF"
+    qos: 0
+
+
+automation:
+- alias: Turn off kitchen light 10 minutes after last movement
+  trigger:
+    platform: state
+    entity_id: binary_sensor.controle1_botao2
+    to: 'on'
+    for:
+      seconds: 10
+  action:
+    service: homeassistant.turn_off
+    entity_id: binary_sensor.controle1_botao2
+
+
+group:
+  gateway_rf:
+    name: "Gataway RF"
+    entities:
+      - light.gateway_rf_rele1
+      - light.gateway_rf_rele2
+      - light.gateway_rf_rele3
+      - binary_sensor.controle1_botao2
+      - binary_sensor.controle1_botao3

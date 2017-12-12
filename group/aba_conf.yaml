@@ -2,3 +2,9 @@
   name: configurao
   view: yes
   entities:
+    - group.sensores
+
+sensores:
+  name: "Sensores"
+  entities:
+    - sensor.SSL_cert_expiry

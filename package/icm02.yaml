@@ -1,0 +1,28 @@
+﻿
+light:
+  - platform: mqtt
+    name: icm02_rele1
+    state_topic: "casa/icm02/rele1"
+    command_topic: "casa/icm02/rele1/set"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+    optimistic: false
+    
+  - platform: mqtt
+    name: icm02_rele2
+    state_topic: "casa/icm02/rele2"
+    command_topic: "casa/icm02/rele2/set"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+    optimistic: false
+
+group:
+  icm02:
+    name: "ICM02"
+    entities:
+      - light.icm02_rele1
+      - light.icm02_rele2

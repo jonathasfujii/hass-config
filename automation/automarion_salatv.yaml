@@ -6,18 +6,27 @@
 #  action:
 #    service: homeassistant.turn_on
 #    entity_id: script.timer_pir_salatv
-- alias: luz_salatv_spot_frente_on
+- alias: luz_casa_fundo_ligar1
   trigger:
     platform: sun
     event: sunset
   action:
     service: light.turn_on
-    entity_id: light.salatv_spot_frente
+    entity_id: light.salatv_spot_frente, light.icm02_rele2, light.gateway_rf_rele1, light.gateway_rf_rele2
 
-- alias: luz_salatv_spot_frente_off
+- alias: luz_casa_fundo_ligar2
+  trigger:
+    platform: sun
+    event: sunset
+    offset: "+00:15:00"
+  action:
+    service: light.turn_on
+    entity_id: light.quintal_luz_jardim
+
+- alias: luz_casa_fundo_desligar
   trigger:
     platform: time
-    at: '22:00:00'
+    at: '23:00:00'
   action:
     service: light.turn_off
-    entity_id: light.salatv_spot_frente
+    entity_id: light.salatv_spot_frente, light.salatv_spot_fundo, light.quintal_luz_jardim, light.quintal_refletor, light.icm02_rele1, light.icm02_rele2, light.gateway_rf_rele1, light.gateway_rf_rele2

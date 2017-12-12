@@ -3,7 +3,7 @@ rf433_portao:
   sequence:
     - service: mqtt.publish
       data:
-        topic: "mygateway1-in/2/6/1/0/32"
+        topic: "home/commands/PLSL_486/433_6/RFBITS_28"
         payload_template: !secret rf433_portao
 
 rf433_cerca:

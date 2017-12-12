@@ -11,18 +11,30 @@ homeassistant:
   time_zone: America/Cuiaba
   temperature_unit: C
   customize: !include_dir_merge_named customize
-#  packages:
-#    pack_1: package/salatv.yaml
+  packages: 
+    icm02: !include package/icm02.yaml
+    gateway_rf: !include package/gateway_rf.yaml
 
 frontend:
 http:
-  api_password: !secret senha_http
+  api_password: !secret api_password
+  ssl_certificate: !secret ssl_certificate
+  ssl_key: !secret ssl_key
+  base_url: !secret base_url
+  trusted_networks:
+    - 127.0.0.1
+    - ::1
+    - 192.168.1.0/24
+  ip_ban_enabled: True
+  login_attempts_threshold: 3
+
 updater:
 conversation:
 history:
 logbook:
 sun:
 ios:
+discovery:
   
 ################ Includes #######################
 group: !include_dir_merge_named group
@@ -38,18 +50,10 @@ sensor: !include_dir_merge_list sensor
 binary_sensor: !include binary_sensor.yaml
 input_select: !include input_select.yaml
 
-#logger:
-#  default: warn
-  #default: error
-#  logs:
-#    homeassistant.components.binary_sensor: debug
-#    homeassistant.components.sensor: debug
-#    homeassistant.components.camera: debug
-#    homeassistant.components.discovery: warn
-#    homeassistant.components.http: warn
-#    homeassistant.core: debug
-
-#notify:
+notify:
+  - platform: ios
+    name: iOSApp
+    target: '3920b7fd-9de1-329c-8228-3d4e23f915c1'
 #  - platform: telegram
 #    name: telegram_jonathas
 #    api_key: !secret telegram_api_key
@@ -64,7 +68,7 @@ alarm_control_panel:
   platform: manual
   pending_time: 5
 
-device_tracker:
-  - platform: nmap_tracker
-    hosts: 192.168.1.1/24 
-    interval_seconds: 30
+#device_tracker:
+#  - platform: nmap_tracker
+#    hosts: 192.168.1.1/24 
+#    interval_seconds: 30

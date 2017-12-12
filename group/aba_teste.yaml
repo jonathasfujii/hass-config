@@ -1,8 +1,8 @@
-﻿Teste:
-  name: teste
-  view: yes
-  entities:
-    - light.luz_frente2
-    - light.luz_area_frente
-    - script.rf433_portao
-    - script.rf433_cerca
+﻿#Teste:
+#  name: teste
+#  view: yes
+#  entities:
+#    - light.luz_frente2
+#    - light.luz_area_frente
+#    - script.rf433_portao
+#    - script.rf433_cerca

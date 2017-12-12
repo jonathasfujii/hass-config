@@ -1,13 +1,26 @@
-﻿light.luz_aquario:
-  friendly_name: 'Luz do aquário'
-
-light.luz_frente:
+﻿light.luz_frente:
   friendly_name: 'Luz da frente'
-
-light.arvore_natal:
-  friendly_name: 'Arvore de Natal'
 
 light.salatv_spot_frente:
   friendly_name: 'Luz da TV'
+
 light.salatv_spot_fundo:
   friendly_name: 'Luz do Sofá'
+
+light.quintal_luz_jardim:
+  friendly_name: 'Luz do Jardim'
+
+light.quintal_refletor:
+  friendly_name: 'Luz do Refletor'
+
+light.icm02_rele1:
+  friendly_name: 'Luz da Cozinha'
+
+light.icm02_rele2:
+  friendly_name: 'Luz do Armário'
+
+light.gateway_rf_rele1:
+  friendly_name: 'Luz do Aquário'
+
+light.gateway_rf_rele2:
+  friendly_name: 'Arvore de Natal'

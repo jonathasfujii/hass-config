@@ -4,16 +4,19 @@
     event_type: homeassistant_start
   action:
     - delay: 00:01:00
-    - service: notify.telegram_jonathas
+    - service: notify.ios_jonathas
       data:
         message: 'Home Assistant inicializado.'
 
-#- alias: notificar
-#  trigger:
-#    platform: mqtt
-#    topic: "casa/aquario/racao"
-#    payload: 'ON'
-#  action:
-#    service: notify.telegram_teste
-#    data:
-#      message: 'Ração do aquario acionada.'
+- alias: notificar
+  trigger:
+    platform: mqtt
+    topic: "casa/aquario/racao"
+    payload: 'ON'
+  action:
+    service: notify.ios_jonathas
+    data:
+        message: "Something happened at home!"
+        data:
+          push:
+            badge: 0

@@ -41,3 +41,9 @@
   state_topic: "casa/abajur/ldr"
   name: "Abajur Sensor Luz"
   qos: 1
+
+- platform: command_line
+  name: "SSL cert expiry"
+  unit_of_measurement: days
+  scan_interval: 10800
+  command: "ssl-cert-check -b -c /etc/letsencrypt/live/examplehome.duckdns.org/cert.pem | awk '{ print $NF }'"
