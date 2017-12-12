@@ -53,7 +53,7 @@ input_select: !include input_select.yaml
 notify:
   - platform: ios
     name: iOSApp
-    target: '3920b7fd-9de1-329c-8228-3d4e23f915c1'
+    target: !secret target_jonathas
 #  - platform: telegram
 #    name: telegram_jonathas
 #    api_key: !secret telegram_api_key
