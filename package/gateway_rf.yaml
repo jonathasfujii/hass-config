@@ -28,32 +28,11 @@
     retain: true
     optimistic: false
 
-binary_sensor:
+sensor:
   - platform: mqtt
-    name: "controle1_botao2"
+    name: "gateway_rf433"
     state_topic: "casa/gateway_rf/433toMQTT"
-    payload_on: "159460773"
-    payload_off: "159460773-OFF"
-    qos: 0
-  - platform: mqtt
-    name: "controle1_botao3"
-    state_topic: "casa/gateway_rf/433toMQTT"
-    payload_on: "159460789"
-    payload_off: "159460789-OFF"
-    qos: 0
-
-
-automation:
-- alias: Turn off kitchen light 10 minutes after last movement
-  trigger:
-    platform: state
-    entity_id: binary_sensor.controle1_botao2
-    to: 'on'
-    for:
-      seconds: 10
-  action:
-    service: homeassistant.turn_off
-    entity_id: binary_sensor.controle1_botao2
+    expire_after: 5
 
 
 group:
@@ -63,5 +42,4 @@ group:
       - light.gateway_rf_rele1
       - light.gateway_rf_rele2
       - light.gateway_rf_rele3
-      - binary_sensor.controle1_botao2
-      - binary_sensor.controle1_botao3
+      - sensor.gateway_rf433

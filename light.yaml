@@ -2,16 +2,6 @@
 ##### Luzes #####
 #################
 
- - platform: mqtt
-   name: luz_frente
-   state_topic: "casa/frente/luz/status"
-   command_topic: "casa/frente/luz/set"
-   qos: 1
-   payload_on: "ON"
-   payload_off: "OFF"
-   retain: true
-   optimistic: false
-
 ########## Aquario """"""""""""""""""""
  - platform: mqtt_json
    name: "Luz Aquario"

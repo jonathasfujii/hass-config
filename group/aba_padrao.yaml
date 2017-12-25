@@ -14,11 +14,6 @@
     - alarm_control_panel.ha_alarm
     - updater.updater
 
-Frente:
-  name: "Frente"
-  entities:
-    - light.luz_frente
-    - script.rf433_portao
 
 SalaTV:
   name: "SalaTV"
@@ -32,7 +27,7 @@ Quintal:
   entities:
     - light.quintal_luz_jardim
     - light.quintal_refletor
-    - binary_sensor.quintal_sensor_pir
+##    - binary_sensor.quintal_sensor_pir
     - sensor.temperatura_quintal
     
 

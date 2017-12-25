@@ -3,20 +3,27 @@
     platform: event
     event_type: homeassistant_start
   action:
-    - delay: 00:01:00
-    - service: notify.ios_jonathas
+    - delay: 00:00:30
+    - service: notify.telegram_jonathas
       data:
         message: 'Home Assistant inicializado.'
 
-- alias: notificar
+- alias: notificar_ratoeira_armada
   trigger:
     platform: mqtt
-    topic: "casa/aquario/racao"
-    payload: 'ON'
+    topic: "casa/ratoeira/status"
+    payload: 'Armada'
   action:
-    service: notify.ios_jonathas
+    service: notify.telegram_jonathas
     data:
-        message: "Something happened at home!"
-        data:
-          push:
-            badge: 0
+        message: "Ratoeira armada!"
+
+- alias: notificar_ratoeira_disparada
+  trigger:
+    platform: mqtt
+    topic: "casa/ratoeira/status"
+    payload: 'Disparada'
+  action:
+    service: notify.telegram_jonathas
+    data:
+        message: "Ratoeira disparada!"

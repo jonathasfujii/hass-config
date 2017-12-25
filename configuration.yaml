@@ -11,10 +11,8 @@ homeassistant:
   time_zone: America/Cuiaba
   temperature_unit: C
   customize: !include_dir_merge_named customize
-  packages: 
-    icm02: !include package/icm02.yaml
-    gateway_rf: !include package/gateway_rf.yaml
-
+  packages: !include_dir_named package
+   
 frontend:
 http:
   api_password: !secret api_password
@@ -50,19 +48,21 @@ sensor: !include_dir_merge_list sensor
 binary_sensor: !include binary_sensor.yaml
 input_select: !include input_select.yaml
 
+telegram_bot:
+  - platform: polling
+    api_key: !secret telegram_api_key
+    allowed_chat_ids:
+      - !secret chat_id_jonathas
+
 notify:
-  - platform: ios
-    name: iOSApp
-    target: !secret target_jonathas
-#  - platform: telegram
-#    name: telegram_jonathas
-#    api_key: !secret telegram_api_key
-#    chat_id: !secret telegram_chat_id
+  - platform: telegram
+    name: telegram_jonathas
+    chat_id: !secret chat_id_jonathas
 
 mqtt:
   broker: localhost
   port: 1883
-  client_id: home-assistant-1
+  client_id: homeassistant
 
 alarm_control_panel:
   platform: manual
@@ -72,3 +72,14 @@ alarm_control_panel:
 #  - platform: nmap_tracker
 #    hosts: 192.168.1.1/24 
 #    interval_seconds: 30
+
+google_assistant:
+  project_id: !secret project_id
+  client_id: !secret client_id
+  access_token: !secret access_token
+#  agent_user_id: !secret agent_user_id
+#  api_key: !secret api_key
+  exposed_domains:
+    - switch
+    - light
+    - group

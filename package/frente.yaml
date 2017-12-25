@@ -1,0 +1,91 @@
+﻿## Package Frente
+light:
+  - platform: mqtt
+    name: luz_frente
+    state_topic: "casa/frente/luz/status"
+    command_topic: "casa/frente/luz/set"
+    qos: 1
+    payload_on: "ON"
+    payload_off: "OFF"
+    retain: true
+    optimistic: false
+
+script:
+  rf433_portao:
+    alias: 'Portão eletrônico'
+    sequence:
+      - service: mqtt.publish
+        data:
+          topic: "home/commands/PLSL_486/433_6/RFBITS_28"
+          payload_template: !secret rf433_portao
+
+timer:
+  frente_luz:
+    duration: '00:05:00'
+
+automation:
+## Luz automática ao escurecer até as 09:30
+  - id: frente_luz_automatica_on
+    alias: "Luz da frente automática ON"
+    trigger:
+      platform: sun
+      event: sunset
+      offset: "+00:20:00"
+    action:
+      service: light.turn_on
+      entity_id: light.luz_frente
+
+  - id: frente_luz_automatica_off
+    alias: "Luz da frente automática OFF"
+    trigger:
+      platform: time
+      at: '21:30:00'
+    action:
+      service: light.turn_off
+      entity_id: light.luz_frente
+## Luz em 10 minutos
+  - id: frente_luz_timer_off
+    alias: "Luz da frente timer off"
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.frente_luz
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.luz_frente
+
+  - id: frente_luz_timer_on
+    alias: "Luz da frente timer on"
+    trigger:
+      - platform: state
+        entity_id: sensor.gateway_rf433
+        to: !secret rf433_controle_corsa
+      - platform: state
+        entity_id: sensor.gateway_rf433
+        to: !secret rf433_controle1_botao1
+      - platform: state
+        entity_id: sensor.gateway_rf433
+        to: !secret rf433_controle1_botao2
+    condition:
+      condition: and
+      conditions:
+        - condition: state
+          entity_id: light.luz_frente
+          state: 'off'
+        - condition: sun
+          after: sunset
+          after_offset: "+00:20:00"
+    action:
+      - service: homeassistant.turn_on
+        entity_id: light.luz_frente
+      - service: timer.start
+        entity_id: timer.frente_luz
+
+
+group:
+  Frente:
+    name: "Frente"
+    entities:
+      - light.luz_frente
+      - script.rf433_portao
