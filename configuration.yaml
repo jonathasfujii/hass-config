@@ -27,12 +27,12 @@ http:
   login_attempts_threshold: 3
 
 updater:
-conversation:
 history:
+recorder:
 logbook:
+conversation:
 sun:
 ios:
-discovery:
   
 ################ Includes #######################
 group: !include_dir_merge_named group
@@ -77,9 +77,10 @@ google_assistant:
   project_id: !secret project_id
   client_id: !secret client_id
   access_token: !secret access_token
-#  agent_user_id: !secret agent_user_id
+  agent_user_id: !secret agent_user_id
 #  api_key: !secret api_key
   exposed_domains:
     - switch
     - light
+    - sensor
     - group

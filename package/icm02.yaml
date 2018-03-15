@@ -26,3 +26,36 @@ group:
     entities:
       - light.icm02_rele1
       - light.icm02_rele2
+
+timer:
+  icm02_rele2:
+    duration: '00:15:00'
+
+automation:
+## Luz acionada por movimento por 15 minutos
+  - id: icm02_rele2_timer_off
+    alias: "Luz armario timer off"
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.icm02_rele2
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.icm02_rele2
+
+  - id: icm02_rele2_timer_on
+    alias: "Luz armario timer on"
+    trigger:
+      - platform: state
+        entity_id: sensor.gateway_rf433
+        to: !secret rf433_sensor_pir_cozinha
+    condition:
+      - condition: time
+        after: '22:00:00'
+        before: '06:00:00'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: light.icm02_rele2
+      - service: timer.start
+        entity_id: timer.icm02_rele2

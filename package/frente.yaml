@@ -60,13 +60,16 @@ automation:
     trigger:
       - platform: state
         entity_id: sensor.gateway_rf433
+        to: !secret rf433_controle_fiesta
+      - platform: state
+        entity_id: sensor.gateway_rf433
         to: !secret rf433_controle_corsa
       - platform: state
         entity_id: sensor.gateway_rf433
         to: !secret rf433_controle1_botao1
       - platform: state
         entity_id: sensor.gateway_rf433
-        to: !secret rf433_controle1_botao2
+        to: !secret rf433_controle2_botao1
     condition:
       condition: and
       conditions:

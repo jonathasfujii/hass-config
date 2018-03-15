@@ -1,6 +1,7 @@
 ﻿group:
-  salatv2:
-    name: "SalaTV2"
+  SalaTV:
+    name: "SalaTV"
     entities:
-      - binary_sensor.salatv_sensor_pir
+      - light.salatv_spot_frente
+      - light.salatv_spot_fundo
 

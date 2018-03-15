@@ -39,7 +39,76 @@ group:
   gateway_rf:
     name: "Gataway RF"
     entities:
-      - light.gateway_rf_rele1
-      - light.gateway_rf_rele2
       - light.gateway_rf_rele3
       - sensor.gateway_rf433
+  Sala:
+    name: "Sala"
+    entities:
+      - light.gateway_rf_rele1
+      - light.gateway_rf_rele2
+
+## Luz acionada por movimento por 15 minutos
+timer:
+  gateway_rf_rele2:
+    duration: '00:15:00'
+
+automation:
+  - id: gateway_rf_rele2_timer_off
+    alias: "Abajur sala timer off"
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.gateway_rf_rele2
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.gateway_rf_rele2
+
+  - id: gateway_rf_rele2_timer_on
+    alias: "Abajur sala timer on"
+    trigger:
+      - platform: state
+        entity_id: sensor.gateway_rf433
+        to: !secret rf433_sensor_pir_sala
+    condition:
+      - condition: time
+        after: '22:00:00'
+        before: '06:00:00'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: light.gateway_rf_rele2
+      - service: timer.start
+        entity_id: timer.gateway_rf_rele2
+
+## Luz Aquario acionada por movimento por 40 minutos
+timer:
+  gateway_rf_rele1:
+    duration: '00:45:00'
+
+automation:
+  - id: gateway_rf_rele1_timer_off
+    alias: "Aquario sala timer off"
+    trigger:
+      platform: event
+      event_type: timer.finished
+      event_data:
+        entity_id: timer.gateway_rf_rele1
+    action:
+      service: homeassistant.turn_off
+      entity_id: light.gateway_rf_rele1
+
+  - id: gateway_rf_rele1_timer_on
+    alias: "Aquario sala timer on"
+    trigger:
+      - platform: state
+        entity_id: sensor.gateway_rf433
+        to: !secret rf433_sensor_pir_sala
+    condition:
+      - condition: time
+        after: '08:00:00'
+        before: '17:00:00'
+    action:
+      - service: homeassistant.turn_on
+        entity_id: light.gateway_rf_rele1
+      - service: timer.start
+        entity_id: timer.gateway_rf_rele1

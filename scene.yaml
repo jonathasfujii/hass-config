@@ -37,3 +37,47 @@
       state: off
       transition: 1
 
+- name: apagar_luzes
+  entities:
+    light.gateway_rf_rele1:
+      state: off
+    light.gateway_rf_rele2:
+      state: off
+    light.gateway_rf_rele3:
+      state: off
+    light.salatv_spot_frente:
+      state: off
+    light.salatv_spot_fundo:
+      state: off
+    light.quintal_refletor:
+      state: off
+    light.quintal_luz_jardim:
+      state: off
+    light.icm02_rele1:
+      state: off
+    light.icm02_rele2:
+      state: off
+    light.luz_frente:
+      state: off
+- name: ligar_luzes
+  entities:
+    light.gateway_rf_rele1:
+      state: on
+    light.gateway_rf_rele2:
+      state: on
+    light.gateway_rf_rele3:
+      state: on
+    light.salatv_spot_frente:
+      state: on
+    light.salatv_spot_fundo:
+      state: on
+    light.quintal_refletor:
+      state: on
+    light.quintal_luz_jardim:
+      state: on
+    light.icm02_rele1:
+      state: on
+    light.icm02_rele2:
+      state: on
+    light.luz_frente:
+      state: on

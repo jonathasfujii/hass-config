@@ -7,3 +7,6 @@ group.configuracao:
 
 group.conf_aquario:
   friendly_name: 'Automação Aquário'
+
+group.icm02:
+  friendly_name: 'Cozinha'

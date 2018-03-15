@@ -2,25 +2,24 @@
   view: yes
   icon: mdi:home
   entities:
+    - group.cenas
     - group.frente
     - group.salatv
-    - group.quintal
     - group.sala
-    - group.quarto
+    - group.quintal
 #    - group.aquario
 #    - group.dispositivos
     - group.icm02
+    - group.quarto
     - group.gateway_rf
     - alarm_control_panel.ha_alarm
     - updater.updater
 
-
-SalaTV:
-  name: "SalaTV"
+Cenas:
+  name: "Cenas"
   entities:
-    - light.salatv_spot_frente
-    - light.salatv_spot_fundo
-    - binary_sensor.salatv_sensor_pir
+    - scene.apagar_luzes
+    - scene.ligar_luzes
 
 Quintal:
   name: "Quintal"
@@ -31,10 +30,6 @@ Quintal:
     - sensor.temperatura_quintal
     
 
-Sala:
-  name: "Sala"
-  entities:
-    - binary_sensor.aquario_sensor_pir
 Quarto:
   name: "Quarto"
   entities:
